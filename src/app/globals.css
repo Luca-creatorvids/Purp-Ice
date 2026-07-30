@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+/*
+  PURPICE Markenfarben.
+  -> Hier kannst du spaeter die exakten Farbwerte an dein finales
+     Branding/Logo anpassen (z.B. wenn ein Grafiker die Farben final festlegt).
+*/
+:root {
+  --background: #08070a;
+  --foreground: #f4f2f7;
+
+  --color-ice-black: #08070a;
+  --color-ice-anthracite: #17151b;
+  --color-ice-anthracite-light: #221f28;
+  --color-ice-purple: #9b3dff;
+  --color-ice-purple-light: #c084fc;
+  --color-ice-purple-dark: #5b1a99;
+  --color-ice-chrome: #d8d9e0;
+  --color-ice-chrome-dark: #8b8c96;
+  --color-ice-white: #f4f2f7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ice-black: var(--color-ice-black);
+  --color-ice-anthracite: var(--color-ice-anthracite);
+  --color-ice-anthracite-light: var(--color-ice-anthracite-light);
+  --color-ice-purple: var(--color-ice-purple);
+  --color-ice-purple-light: var(--color-ice-purple-light);
+  --color-ice-purple-dark: var(--color-ice-purple-dark);
+  --color-ice-chrome: var(--color-ice-chrome);
+  --color-ice-chrome-dark: var(--color-ice-chrome-dark);
+  --color-ice-white: var(--color-ice-white);
+
+  --font-headline: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-ice-purple);
+  color: var(--color-ice-white);
+}
+
+/* ---------------------------------------------------------
+   Metallic Glanz-Gradient fuer Headlines & Buttons
+--------------------------------------------------------- */
+.text-gradient-ice {
+  background: linear-gradient(
+    100deg,
+    var(--color-ice-white) 0%,
+    var(--color-ice-purple-light) 45%,
+    var(--color-ice-chrome) 65%,
+    var(--color-ice-white) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-glow-purple {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    120deg,
+    var(--color-ice-purple-dark),
+    var(--color-ice-purple),
+    var(--color-ice-purple-light)
+  );
+  transition: box-shadow 0.35s ease, transform 0.2s ease;
+}
+
+.btn-glow-purple:hover {
+  box-shadow: 0 0 25px 4px rgba(155, 61, 255, 0.55);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Sparkle-/Funkel-Effekt fuer Produktbilder (Hover)
+   Wird von der Komponente <ProductVisual> genutzt.
+--------------------------------------------------------- */
+.sparkle-layer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.9) 0%, transparent 1.2%),
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 1%),
+    radial-gradient(circle at 40% 70%, rgba(216, 217, 224, 0.9) 0%, transparent 1.4%),
+    radial-gradient(circle at 85% 65%, rgba(255, 255, 255, 0.7) 0%, transparent 1%),
+    radial-gradient(circle at 60% 45%, rgba(255, 255, 255, 0.9) 0%, transparent 1%),
+    radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 1%);
+  background-repeat: no-repeat;
+  animation: sparkle-twinkle 1.8s ease-in-out infinite;
+}
+
+.group:hover .sparkle-layer {
+  opacity: 1;
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0.4; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.4); }
+}
+
+/* ---------------------------------------------------------
+   Scroll-Reveal Animation (siehe components/ui/Reveal.tsx)
+--------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .sparkle-layer {
+    animation: none;
+  }
+}
