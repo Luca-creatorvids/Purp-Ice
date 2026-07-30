@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "./nav-links";
+import { Logo } from "./Logo";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,13 +11,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ice-black/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <Link
-          href="/"
-          className="font-headline text-2xl font-bold tracking-wide text-gradient-ice"
-          onClick={() => setMenuOpen(false)}
-        >
-          PURPICE
-        </Link>
+        <Logo height={26} onClick={() => setMenuOpen(false)} />
 
         {/* Desktop-Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">

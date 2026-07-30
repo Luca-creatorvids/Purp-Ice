@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 /*
-  PURPICE Markenfarben.
-  -> Hier kannst du spaeter die exakten Farbwerte an dein finales
-     Branding/Logo anpassen (z.B. wenn ein Grafiker die Farben final festlegt).
+  PURPICE Markenfarben – abgestimmt auf das offizielle Logo
+  (public/brand/purpice-logo.png): neutrales, kühles Chrome/Silber auf
+  Schwarz. Violett bleibt als sparsamer Akzent (CTAs, Hover, Glow) erhalten.
 */
 :root {
-  --background: #08070a;
-  --foreground: #f4f2f7;
+  --background: #060506;
+  --foreground: #f2f1f2;
 
-  --color-ice-black: #08070a;
+  --color-ice-black: #060506;
   --color-ice-anthracite: #17151b;
   --color-ice-anthracite-light: #221f28;
   --color-ice-purple: #9b3dff;
   --color-ice-purple-light: #c084fc;
   --color-ice-purple-dark: #5b1a99;
-  --color-ice-chrome: #d8d9e0;
-  --color-ice-chrome-dark: #8b8c96;
-  --color-ice-white: #f4f2f7;
+  --color-ice-chrome: #e6e5e7;
+  --color-ice-chrome-mid: #b7b6b9;
+  --color-ice-chrome-dark: #8f8e91;
+  --color-ice-white: #f2f1f2;
 }
 
 @theme inline {
@@ -31,6 +32,7 @@
   --color-ice-purple-light: var(--color-ice-purple-light);
   --color-ice-purple-dark: var(--color-ice-purple-dark);
   --color-ice-chrome: var(--color-ice-chrome);
+  --color-ice-chrome-mid: var(--color-ice-chrome-mid);
   --color-ice-chrome-dark: var(--color-ice-chrome-dark);
   --color-ice-white: var(--color-ice-white);
 
@@ -59,15 +61,24 @@ body {
 .text-gradient-ice {
   background: linear-gradient(
     100deg,
-    var(--color-ice-white) 0%,
-    var(--color-ice-purple-light) 45%,
-    var(--color-ice-chrome) 65%,
-    var(--color-ice-white) 100%
+    var(--color-ice-chrome-dark) 0%,
+    var(--color-ice-white) 22%,
+    var(--color-ice-chrome) 40%,
+    var(--color-ice-purple-light) 52%,
+    var(--color-ice-chrome) 64%,
+    var(--color-ice-white) 82%,
+    var(--color-ice-chrome-dark) 100%
   );
-  background-size: 200% auto;
+  background-size: 250% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: chrome-shine 6s ease-in-out infinite;
+}
+
+@keyframes chrome-shine {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
 }
 
 .btn-glow-purple {
@@ -138,6 +149,9 @@ body {
     transition: none;
   }
   .sparkle-layer {
+    animation: none;
+  }
+  .text-gradient-ice {
     animation: none;
   }
 }

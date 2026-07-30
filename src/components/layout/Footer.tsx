@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "./nav-links";
+import { Logo } from "./Logo";
 
 const legalLinks = [
   { href: "/impressum", label: "Impressum" },
@@ -36,9 +37,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
           {/* Marke + Newsletter */}
           <div className="lg:col-span-2">
-            <span className="font-headline text-2xl font-bold text-gradient-ice">
-              PURPICE
-            </span>
+            <Logo height={30} />
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-ice-chrome-dark">
               Iced Out Custom-Uhren mit Moissanite-Steinen – entworfen in München.
               Gleicher Glanz wie Diamanten, fairer Preis.
