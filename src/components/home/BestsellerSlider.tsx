@@ -13,7 +13,7 @@ export function BestsellerSlider() {
           </h2>
           <Link
             href="/shop"
-            className="text-sm font-semibold uppercase tracking-wide text-ice-purple-light hover:text-ice-purple transition-colors"
+            className="text-sm font-semibold uppercase tracking-wide text-ice-chrome hover:text-ice-white transition-colors"
           >
             Alle Uhren ansehen →
           </Link>

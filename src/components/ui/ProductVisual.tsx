@@ -5,7 +5,7 @@ type ProductVisualProps = {
    * PLATZHALTER: Sobald du echte Produktfotos hast, hier den Bildpfad
    * uebergeben (z.B. "/products/chrono-01.jpg"). Bild einfach in den
    * Ordner "public/products/" legen. Ohne "src" wird automatisch der
-   * violette Platzhalter mit Uhren-Icon angezeigt.
+   * dunkle Chrome-Platzhalter mit Uhren-Icon angezeigt.
    */
   src?: string;
   alt: string;

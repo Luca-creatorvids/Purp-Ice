@@ -55,17 +55,17 @@ export function Footer() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="deine@email.com"
-                  className="w-full rounded-full border border-white/15 bg-ice-black/60 px-4 py-2.5 text-sm text-ice-white placeholder:text-ice-chrome-dark/70 outline-none focus:border-ice-purple-light"
+                  className="w-full rounded-full border border-white/15 bg-ice-black/60 px-4 py-2.5 text-sm text-ice-white placeholder:text-ice-chrome-dark/70 outline-none focus:border-ice-chrome"
                 />
                 <button
                   type="submit"
-                  className="btn-glow-purple shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold text-ice-white"
+                  className="btn-glow-chrome shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold text-ice-black"
                 >
                   Anmelden
                 </button>
               </div>
               {submitted && (
-                <p className="mt-2 text-xs text-ice-purple-light">
+                <p className="mt-2 text-xs text-ice-chrome">
                   Danke! Du bist jetzt auf der Liste. ✔
                 </p>
               )}
@@ -80,7 +80,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-purple-light">
+                  <Link href={link.href} className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-white">
                     {link.label}
                   </Link>
                 </li>
@@ -96,7 +96,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-purple-light">
+                  <Link href={link.href} className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-white">
                     {link.label}
                   </Link>
                 </li>
@@ -113,7 +113,7 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-purple-light"
+                    className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-white"
                   >
                     {link.label}
                   </a>

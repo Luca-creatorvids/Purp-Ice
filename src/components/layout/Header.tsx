@@ -19,7 +19,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:text-ice-purple-light"
+              className="text-sm font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:text-ice-white"
             >
               {link.label}
             </Link>
@@ -31,13 +31,13 @@ export function Header() {
           <Link
             href="/warenkorb"
             aria-label="Warenkorb"
-            className="rounded-full border border-white/15 p-2.5 text-ice-white transition-colors hover:border-ice-purple-light hover:text-ice-purple-light"
+            className="rounded-full border border-white/15 p-2.5 text-ice-white transition-colors hover:border-ice-chrome hover:text-ice-white"
           >
             <CartIcon className="h-5 w-5" />
           </Link>
           <Link
             href="/custom-builder"
-            className="btn-glow-purple rounded-full px-5 py-2.5 text-sm font-semibold text-ice-white"
+            className="btn-glow-chrome rounded-full px-5 py-2.5 text-sm font-semibold text-ice-black"
           >
             Jetzt individualisieren
           </Link>
@@ -63,7 +63,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:bg-white/5 hover:text-ice-purple-light"
+              className="rounded-lg px-3 py-3 text-base font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:bg-white/5 hover:text-ice-white"
             >
               {link.label}
             </Link>
@@ -71,14 +71,14 @@ export function Header() {
           <Link
             href="/warenkorb"
             onClick={() => setMenuOpen(false)}
-            className="rounded-lg px-3 py-3 text-base font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:bg-white/5 hover:text-ice-purple-light"
+            className="rounded-lg px-3 py-3 text-base font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:bg-white/5 hover:text-ice-white"
           >
             Warenkorb
           </Link>
           <Link
             href="/custom-builder"
             onClick={() => setMenuOpen(false)}
-            className="btn-glow-purple mt-2 rounded-full px-5 py-3 text-center text-sm font-semibold text-ice-white"
+            className="btn-glow-chrome mt-2 rounded-full px-5 py-3 text-center text-sm font-semibold text-ice-black"
           >
             Jetzt individualisieren
           </Link>

@@ -38,7 +38,7 @@ export function TrustSection() {
           {trustPoints.map((point, index) => (
             <Reveal key={point.title} delay={index * 100}>
               <div className="h-full rounded-2xl border border-white/10 bg-ice-black/40 p-6">
-                <h3 className="font-headline text-lg font-semibold text-ice-purple-light">
+                <h3 className="font-headline text-lg font-semibold text-ice-chrome">
                   {point.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ice-chrome-dark">

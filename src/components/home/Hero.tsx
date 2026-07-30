@@ -9,7 +9,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-16 lg:grid-cols-2 lg:px-10 lg:pt-24">
         <div>
-          <span className="inline-block rounded-full border border-ice-purple-light/40 bg-ice-purple/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ice-purple-light">
+          <span className="inline-block rounded-full border border-ice-chrome/30 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ice-chrome">
             Made in München
           </span>
 
@@ -28,13 +28,13 @@ export function Hero() {
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
               href="/shop"
-              className="btn-glow-purple rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-white"
+              className="btn-glow-chrome rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-black"
             >
               Shop entdecken
             </Link>
             <Link
               href="/custom-builder"
-              className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-white transition-colors hover:border-ice-purple-light hover:text-ice-purple-light"
+              className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-white transition-colors hover:border-ice-chrome hover:text-ice-chrome"
             >
               Custom Builder
             </Link>
@@ -43,7 +43,7 @@ export function Hero() {
 
         {/* Hero-Produktbild / Platzhalter */}
         <div className="relative mx-auto w-full max-w-md">
-          <ProductVisual alt="PURPICE Bestseller Uhr – Hero-Showcase" className="shadow-[0_0_80px_-20px_rgba(155,61,255,0.5)]" />
+          <ProductVisual alt="PURPICE Bestseller Uhr – Hero-Showcase" className="shadow-[0_0_80px_-20px_rgba(230,229,231,0.4)]" />
         </div>
       </div>
     </section>

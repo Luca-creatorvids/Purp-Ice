@@ -13,7 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="text-xs uppercase tracking-widest text-ice-chrome-dark">
           {product.category}
         </p>
-        <h3 className="mt-1 font-headline text-lg font-semibold text-ice-white transition-colors group-hover/card:text-ice-purple-light">
+        <h3 className="mt-1 font-headline text-lg font-semibold text-ice-white transition-colors group-hover/card:text-ice-chrome">
           {product.name}
         </h3>
         <p className="mt-1 text-sm text-ice-chrome">{product.price} €</p>

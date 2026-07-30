@@ -23,8 +23,8 @@ export const bestsellers: Product[] = [
     price: 429,
   },
   {
-    slug: "midnight-purple-edition",
-    name: "Midnight Purple Edition",
+    slug: "midnight-chrome-edition",
+    name: "Midnight Chrome Edition",
     category: "Limited Edition",
     price: 499,
   },
