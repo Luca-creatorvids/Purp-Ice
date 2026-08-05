@@ -1,12 +1,10 @@
 // ---------------------------------------------------------------------
-// PLATZHALTER: Trage hier den Pfad zu deiner Uhren-Animation ein, sobald
-// du eine hast, z.B. "/animations/hero-watch.mp4". Die Videodatei dafür
-// einfach in den Ordner "public/animations/" legen. Unterstützt werden
-// normale Video-Dateien (MP4/WebM) – sie laufen automatisch, stumm und
-// in Dauerschleife. Solange hier "null" steht, zeigt die Startseite an
-// dieser Stelle einen Platzhalter.
+// Trage hier den Pfad zu deiner Uhren-Animation ein. Video-Datei liegt in
+// public/animations/ – neue Animation einfach dort ablegen und Pfad hier
+// anpassen. "null" zeigt stattdessen den Platzhalter mit Play-Symbol.
 // ---------------------------------------------------------------------
-const HERO_ANIMATION_SRC: string | null = null;
+const HERO_ANIMATION_SRC: string | null = "/animations/hero-watch.mp4";
+const HERO_ANIMATION_POSTER: string | undefined = "/animations/hero-watch-poster.jpg";
 
 /**
  * Reservierter Platz ganz oben auf der Startseite (im Hero-Bereich) für
@@ -21,10 +19,12 @@ export function WatchAnimationSlot({ className = "" }: { className?: string }) {
       {HERO_ANIMATION_SRC ? (
         <video
           src={HERO_ANIMATION_SRC}
+          poster={HERO_ANIMATION_POSTER}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="h-full w-full object-cover"
         />
       ) : (
