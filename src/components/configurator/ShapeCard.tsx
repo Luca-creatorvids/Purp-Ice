@@ -1,13 +1,13 @@
 import Image from "next/image";
-import type { BaseModel } from "@/lib/configurator";
+import type { WatchShape } from "@/lib/configurator";
 
-type ModelCardProps = {
-  model: BaseModel;
+type ShapeCardProps = {
+  shape: WatchShape;
   selected: boolean;
   onSelect: () => void;
 };
 
-export function ModelCard({ model, selected, onSelect }: ModelCardProps) {
+export function ShapeCard({ shape, selected, onSelect }: ShapeCardProps) {
   return (
     <button
       type="button"
@@ -27,10 +27,10 @@ export function ModelCard({ model, selected, onSelect }: ModelCardProps) {
       )}
 
       <div className="relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black">
-        {model.image ? (
+        {shape.image ? (
           <Image
-            src={model.image}
-            alt={model.name}
+            src={shape.image}
+            alt={shape.name}
             fill
             loading="lazy"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -46,31 +46,16 @@ export function ModelCard({ model, selected, onSelect }: ModelCardProps) {
         <div className="sparkle-layer" aria-hidden="true" />
       </div>
 
-      <div className="mt-3 flex items-center gap-2">
-        <span
-          className="h-4 w-4 shrink-0 rounded-full border border-white/20"
-          style={{ background: model.swatch }}
-          aria-hidden="true"
-        />
-        <span className="text-xs text-ice-chrome-dark">{model.finish}</span>
-      </div>
-      <h3 className="mt-1 font-headline text-lg font-semibold text-ice-white">
-        {model.name}
-      </h3>
-      <p className="mt-0.5 text-sm text-ice-chrome">ab {model.startPrice} €</p>
+      <h3 className="mt-3 font-headline text-lg font-semibold text-ice-white">{shape.name}</h3>
+      <p className="mt-0.5 text-xs text-ice-chrome-dark">{shape.description}</p>
+      <p className="mt-1 text-sm text-ice-chrome">ab {shape.startPrice} €</p>
     </button>
   );
 }
 
 function WatchGlyph({ className = "" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
       <rect x="20" y="4" width="24" height="10" rx="2" fill="currentColor" opacity="0.5" />
       <rect x="20" y="50" width="24" height="10" rx="2" fill="currentColor" opacity="0.5" />
       <circle cx="32" cy="32" r="20" stroke="currentColor" strokeWidth="2.5" />

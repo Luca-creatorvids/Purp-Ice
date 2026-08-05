@@ -1,21 +1,26 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { baseModels } from "@/lib/configurator";
+import { bezelStyles, colorways, watchShapes } from "@/lib/configurator";
 import { ProgressSteps } from "./ProgressSteps";
-import { ModelStep } from "./ModelStep";
+import { CaseStep } from "./CaseStep";
+import { BezelStep } from "./BezelStep";
+import { StepReveal } from "./StepReveal";
 import { SummarySidebar } from "./SummarySidebar";
 
 export function CustomBuilder() {
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [shapeSlug, setShapeSlug] = useState<string | null>(null);
+  const [colorSlug, setColorSlug] = useState<string | null>(null);
+  const [bezelSlug, setBezelSlug] = useState<string | null>(null);
 
-  const selectedModel = useMemo(
-    () => baseModels.find((model) => model.slug === selectedSlug) ?? null,
-    [selectedSlug]
-  );
+  const shape = useMemo(() => watchShapes.find((s) => s.slug === shapeSlug) ?? null, [shapeSlug]);
+  const color = useMemo(() => colorways.find((c) => c.slug === colorSlug) ?? null, [colorSlug]);
+  const bezel = useMemo(() => bezelStyles.find((b) => b.slug === bezelSlug) ?? null, [bezelSlug]);
 
-  // Gesamtpreis = Basismodell-Preis (+ später Rahmen-Aufpreis aus Schritt 2)
-  const totalPrice = selectedModel?.startPrice ?? 0;
+  const caseComplete = Boolean(shape && color);
+  const currentStep = !caseComplete ? 1 : !bezel ? 2 : 3;
+
+  const totalPrice = (shape?.startPrice ?? 0) + (color?.surcharge ?? 0) + (bezel?.surcharge ?? 0);
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16">
@@ -27,16 +32,27 @@ export function CustomBuilder() {
           <span className="text-gradient-ice">Baue deine Uhr</span>
         </h1>
         <div className="mt-6">
-          <ProgressSteps currentStep={1} />
+          <ProgressSteps currentStep={currentStep} />
         </div>
       </header>
 
       <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:items-start">
         <div className="min-w-0 flex-1">
-          <ModelStep selectedSlug={selectedSlug} onSelect={setSelectedSlug} />
+          <CaseStep
+            selectedShapeSlug={shapeSlug}
+            selectedColorSlug={colorSlug}
+            onSelectShape={setShapeSlug}
+            onSelectColor={setColorSlug}
+          />
+
+          {caseComplete && (
+            <StepReveal key="bezel-step">
+              <BezelStep selectedSlug={bezelSlug} onSelect={setBezelSlug} />
+            </StepReveal>
+          )}
         </div>
 
-        <SummarySidebar selectedModel={selectedModel} totalPrice={totalPrice} />
+        <SummarySidebar shape={shape} color={color} bezel={bezel} totalPrice={totalPrice} />
       </div>
     </div>
   );

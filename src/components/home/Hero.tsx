@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ParallaxGlow } from "./ParallaxGlow";
-import { ProductVisual } from "@/components/ui/ProductVisual";
+import { WatchAnimationSlot } from "./WatchAnimationSlot";
 
 export function Hero() {
   return (
@@ -41,9 +41,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Hero-Produktbild / Platzhalter */}
+        {/* Hero-Animationsplatz: siehe components/home/WatchAnimationSlot.tsx */}
         <div className="relative mx-auto w-full max-w-md">
-          <ProductVisual alt="PURPICE Bestseller Uhr – Hero-Showcase" className="shadow-[0_0_80px_-20px_rgba(230,229,231,0.4)]" />
+          <WatchAnimationSlot className="shadow-[0_0_80px_-20px_rgba(230,229,231,0.4)]" />
         </div>
       </div>
     </section>
