@@ -43,7 +43,7 @@ export function Hero() {
 
         {/* Hero-Animationsplatz: siehe components/home/WatchAnimationSlot.tsx */}
         <div className="relative mx-auto w-full max-w-md">
-          <WatchAnimationSlot className="shadow-[0_0_80px_-20px_rgba(230,229,231,0.4)]" />
+          <WatchAnimationSlot />
         </div>
       </div>
     </section>

@@ -3,13 +3,13 @@ type ProgressStepsProps = {
 };
 
 const steps = [
-  { step: 1, label: "Modell" },
+  { step: 1, label: "Farbe" },
   { step: 2, label: "Rahmen" },
   { step: 3, label: "Fertig" },
 ] as const;
 
 /**
- * Kleine Schritte-Anzeige oben im Custom Builder: "1. Modell → 2. Rahmen →
+ * Kleine Schritte-Anzeige oben im Custom Builder: "1. Farbe → 2. Rahmen →
  * 3. Fertig". Zeigt, wo der Kunde gerade steht – künftige Schritte werden
  * gedimmt dargestellt, solange sie noch nicht erreichbar sind.
  */

@@ -13,7 +13,7 @@ export function BezelStep({ selectedSlug, onSelect }: BezelStepProps) {
         Schritt 2 — Moissanite-Rahmen
       </h2>
       <p className="mt-2 max-w-xl text-sm text-ice-chrome-dark">
-        Der Steinbesatz rund um dein Case. Die Vorschau rechts zeigt deine
+        Der Steinbesatz rund um deine Uhr. Die Vorschau rechts zeigt deine
         Kombination.
       </p>
 

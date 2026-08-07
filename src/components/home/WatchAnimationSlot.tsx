@@ -6,37 +6,45 @@
 const HERO_ANIMATION_SRC: string | null = "/animations/hero-watch.mp4";
 const HERO_ANIMATION_POSTER: string | undefined = "/animations/hero-watch-poster.jpg";
 
+// Blendet den Rand des Videos weich aus, statt ihn hart abzuschneiden –
+// dadurch verschmilzt das rechteckige Video optisch mit dem schwarzen
+// Seitenhintergrund, ohne dass ein "Kasten" zu sehen ist.
+const EDGE_FADE_MASK =
+  "radial-gradient(ellipse 62% 62% at 50% 50%, black 45%, transparent 100%)";
+
 /**
  * Reservierter Platz ganz oben auf der Startseite (im Hero-Bereich) für
- * eine Uhren-Animation. Sobald HERO_ANIMATION_SRC gesetzt ist, wird das
- * Video automatisch anstelle des Platzhalters angezeigt.
+ * eine Uhren-Animation. Sobald HERO_ANIMATION_SRC gesetzt ist, läuft das
+ * Video direkt auf dem Seitenhintergrund – bewusst ohne Rahmen/Karte,
+ * mit weich ausgeblendetem Rand, damit es mit dem schwarzen Hintergrund
+ * der Seite verschmilzt (das Video selbst hat ebenfalls einen schwarzen
+ * Hintergrund).
  */
 export function WatchAnimationSlot({ className = "" }: { className?: string }) {
+  if (HERO_ANIMATION_SRC) {
+    return (
+      <video
+        src={HERO_ANIMATION_SRC}
+        poster={HERO_ANIMATION_POSTER}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        style={{ maskImage: EDGE_FADE_MASK, WebkitMaskImage: EDGE_FADE_MASK }}
+        className={`block w-full ${className}`}
+      />
+    );
+  }
+
   return (
     <div
-      className={`group relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black ${className}`}
+      className={`relative flex aspect-square w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black text-ice-chrome-dark ${className}`}
     >
-      {HERO_ANIMATION_SRC ? (
-        <video
-          src={HERO_ANIMATION_SRC}
-          poster={HERO_ANIMATION_POSTER}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="h-full w-full object-cover"
-        />
-      ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-ice-chrome-dark">
-          <PlayGlyph className="h-14 w-14 opacity-60" />
-          <span className="px-6 text-center text-xs uppercase tracking-widest">
-            Uhren-Animation folgt
-          </span>
-        </div>
-      )}
-      <div className="sparkle-layer" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+      <PlayGlyph className="h-14 w-14 opacity-60" />
+      <span className="px-6 text-center text-xs uppercase tracking-widest">
+        Uhren-Animation folgt
+      </span>
     </div>
   );
 }

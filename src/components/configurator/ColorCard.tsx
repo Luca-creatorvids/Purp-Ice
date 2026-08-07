@@ -1,13 +1,13 @@
 import Image from "next/image";
-import type { WatchShape } from "@/lib/configurator";
+import type { WatchColor } from "@/lib/configurator";
 
-type ShapeCardProps = {
-  shape: WatchShape;
+type ColorCardProps = {
+  color: WatchColor;
   selected: boolean;
   onSelect: () => void;
 };
 
-export function ShapeCard({ shape, selected, onSelect }: ShapeCardProps) {
+export function ColorCard({ color, selected, onSelect }: ColorCardProps) {
   return (
     <button
       type="button"
@@ -27,10 +27,10 @@ export function ShapeCard({ shape, selected, onSelect }: ShapeCardProps) {
       )}
 
       <div className="relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black">
-        {shape.image ? (
+        {color.image ? (
           <Image
-            src={shape.image}
-            alt={shape.name}
+            src={color.image}
+            alt={color.name}
             fill
             loading="lazy"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -46,9 +46,15 @@ export function ShapeCard({ shape, selected, onSelect }: ShapeCardProps) {
         <div className="sparkle-layer" aria-hidden="true" />
       </div>
 
-      <h3 className="mt-3 font-headline text-lg font-semibold text-ice-white">{shape.name}</h3>
-      <p className="mt-0.5 text-xs text-ice-chrome-dark">{shape.description}</p>
-      <p className="mt-1 text-sm text-ice-chrome">ab {shape.startPrice} €</p>
+      <div className="mt-3 flex items-center gap-2">
+        <span
+          className="h-4 w-4 shrink-0 rounded-full border border-white/20"
+          style={{ background: color.swatch }}
+          aria-hidden="true"
+        />
+        <h3 className="font-headline text-lg font-semibold text-ice-white">{color.name}</h3>
+      </div>
+      <p className="mt-1 text-sm text-ice-chrome">ab {color.price} €</p>
     </button>
   );
 }

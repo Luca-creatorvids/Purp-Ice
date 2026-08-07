@@ -1,37 +1,46 @@
-import type { BezelStyle, Colorway, WatchShape } from "@/lib/configurator";
+import type { BezelStyle, WatchColor } from "@/lib/configurator";
 import { WatchPreview } from "./WatchPreview";
 
 type SummarySidebarProps = {
-  shape: WatchShape | null;
-  color: Colorway | null;
+  color: WatchColor | null;
   bezel: BezelStyle | null;
   totalPrice: number;
+  addedToCart: boolean;
+  onAddToCart: () => void;
 };
 
 /**
  * Zeigt die aktuelle Auswahl + Live-Vorschau + Gesamtpreis, live
  * aktualisiert. Desktop: sticky Sidebar rechts. Mobile: fixierte Leiste
- * unten. "In den Warenkorb" wird erst aktiv, wenn Case, Farbe UND Rahmen
- * gewählt sind.
+ * unten. "In den Warenkorb" wird erst aktiv, wenn Farbe UND Rahmen
+ * gewählt sind (Schritt 3 / Fertig).
  */
-export function SummarySidebar({ shape, color, bezel, totalPrice }: SummarySidebarProps) {
-  const complete = Boolean(shape && color && bezel);
+export function SummarySidebar({ color, bezel, totalPrice, addedToCart, onAddToCart }: SummarySidebarProps) {
+  const complete = Boolean(color && bezel);
 
   return (
     <>
       {/* Desktop */}
       <aside className="hidden lg:sticky lg:top-24 lg:block lg:h-fit lg:w-80 lg:shrink-0">
-        <SummaryContent shape={shape} color={color} bezel={bezel} totalPrice={totalPrice} complete={complete} />
+        <SummaryContent
+          color={color}
+          bezel={bezel}
+          totalPrice={totalPrice}
+          complete={complete}
+          addedToCart={addedToCart}
+          onAddToCart={onAddToCart}
+        />
       </aside>
 
       {/* Mobile: fixierte Leiste am unteren Bildschirmrand */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-ice-black/95 p-4 backdrop-blur-md lg:hidden">
         <SummaryContent
-          shape={shape}
           color={color}
           bezel={bezel}
           totalPrice={totalPrice}
           complete={complete}
+          addedToCart={addedToCart}
+          onAddToCart={onAddToCart}
           compact
         />
       </div>
@@ -43,23 +52,25 @@ export function SummarySidebar({ shape, color, bezel, totalPrice }: SummarySideb
 }
 
 function SummaryContent({
-  shape,
   color,
   bezel,
   totalPrice,
   complete,
+  addedToCart,
+  onAddToCart,
   compact = false,
 }: SummarySidebarProps & { complete: boolean; compact?: boolean }) {
+  const buttonLabel = addedToCart ? "Im Warenkorb ✓" : "In den Warenkorb";
+
   if (compact) {
     return (
       <div className="flex items-center gap-4">
         <div className="shrink-0">
-          <WatchPreview shape={shape} color={color} bezel={bezel} size="sm" />
+          <WatchPreview color={color} bezel={bezel} size="sm" />
         </div>
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm text-ice-white">
-            {shape ? shape.name : "Case wählen"}
-            {color ? ` · ${color.name}` : ""}
+            {color ? color.name : "Farbe wählen"}
             {bezel ? ` · ${bezel.name}` : ""}
           </p>
           <p className="font-headline text-lg font-bold text-ice-white">{totalPrice} €</p>
@@ -67,13 +78,14 @@ function SummaryContent({
         <button
           type="button"
           disabled={!complete}
+          onClick={onAddToCart}
           className={`shrink-0 rounded-full px-4 py-2.5 text-xs font-semibold uppercase tracking-wide ${
             complete
               ? "btn-glow-chrome text-ice-black"
               : "cursor-not-allowed border border-white/10 bg-white/5 text-ice-chrome-dark"
           }`}
         >
-          In den Warenkorb
+          {buttonLabel}
         </button>
       </div>
     );
@@ -86,11 +98,10 @@ function SummaryContent({
       </h3>
 
       <div className="mt-4 w-32">
-        <WatchPreview shape={shape} color={color} bezel={bezel} size="lg" />
+        <WatchPreview color={color} bezel={bezel} size="lg" />
       </div>
 
       <div className="mt-5 space-y-3">
-        <Row label="Case" value={shape ? shape.name : "Noch nicht gewählt"} muted={!shape} />
         <Row label="Farbe" value={color ? color.name : "Noch nicht gewählt"} muted={!color} />
         <Row label="Rahmen" value={bezel ? bezel.name : "Noch nicht gewählt"} muted={!bezel} />
 
@@ -103,22 +114,23 @@ function SummaryContent({
       <button
         type="button"
         disabled={!complete}
-        title={complete ? undefined : "Wähle Case, Farbe und Rahmen, um fortzufahren"}
+        onClick={onAddToCart}
+        title={complete ? undefined : "Wähle Farbe und Rahmen, um fortzufahren"}
         className={`mt-4 w-full rounded-full px-5 py-3 text-sm font-semibold uppercase tracking-wide ${
           complete
             ? "btn-glow-chrome text-ice-black"
             : "cursor-not-allowed border border-white/10 bg-white/5 text-ice-chrome-dark"
         }`}
       >
-        In den Warenkorb
+        {buttonLabel}
       </button>
       <p className="mt-2 text-center text-xs text-ice-chrome-dark">
-        {complete
-          ? "Bereit! Deine Konfiguration ist vollständig."
-          : !shape
-            ? "Wähle zuerst eine Case-Form."
+        {addedToCart
+          ? "Erledigt! Du findest die Uhr in deinem Warenkorb."
+          : complete
+            ? "Bereit! Deine Konfiguration ist vollständig."
             : !color
-              ? "Wähle jetzt deine Farbe."
+              ? "Wähle zuerst deine Farbe."
               : "Wähle jetzt deinen Moissanite-Rahmen."}
       </p>
     </div>

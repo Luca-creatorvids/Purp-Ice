@@ -1,46 +1,34 @@
-import type { BezelStyle, Colorway, WatchShape } from "@/lib/configurator";
+import type { BezelStyle, WatchColor } from "@/lib/configurator";
 
 type WatchPreviewProps = {
-  shape: WatchShape | null;
-  color: Colorway | null;
+  color: WatchColor | null;
   bezel: BezelStyle | null;
   size?: "sm" | "lg";
 };
 
-// Passt die Form der Platzhalter-Vorschau grob an die gewählte Case-Form an,
-// solange noch keine echten Produktfotos hinterlegt sind.
-const SHAPE_CLASS: Record<string, string> = {
-  "sport-square": "rounded-2xl",
-  "classic-round": "rounded-full",
-  "octagon-bold": "[clip-path:polygon(30%_0%,70%_0%,100%_30%,100%_70%,70%_100%,30%_100%,0%_70%,0%_30%)]",
-};
-
 /**
- * Live-Vorschau der aktuellen Konfiguration: Case-Form (grob angedeutet),
- * gewählte Farbe (als Rahmen-Ring um die Vorschau) und – sobald gewählt –
- * der Moissanite-Rahmen (als funkelnder Ring-Overlay). Sobald es echte
- * Produktfotos gibt, kann diese Komponente durch eine Bild-Überlagerung
- * (Case-Foto + Rahmen-Foto übereinander) ersetzt werden.
+ * Live-Vorschau der aktuellen Konfiguration: gewählte Farbe (als Ring um
+ * die Vorschau) und – sobald gewählt – der Moissanite-Rahmen (als
+ * funkelnder Ring-Overlay). Sobald es echte Produktfotos gibt, kann diese
+ * Komponente durch eine Bild-Überlagerung (Uhren-Foto + Rahmen-Foto
+ * übereinander) ersetzt werden.
  */
-export function WatchPreview({ shape, color, bezel, size = "lg" }: WatchPreviewProps) {
-  const shapeClass = shape ? SHAPE_CLASS[shape.slug] ?? "rounded-2xl" : "rounded-2xl";
+export function WatchPreview({ color, bezel, size = "lg" }: WatchPreviewProps) {
   const dimension = size === "lg" ? "aspect-square w-full" : "h-16 w-16";
 
   return (
     <div className={`relative ${dimension}`}>
       {/* Farb-Ring: zeigt die gewählte Ausführung (Schwarz/Silber/Gold/...) */}
       <div
-        className={`h-full w-full p-[3px] transition-colors duration-300 ${shapeClass}`}
+        className="h-full w-full rounded-2xl p-[3px] transition-colors duration-300"
         style={{ background: color ? color.swatch : "rgba(255,255,255,0.12)" }}
       >
-        <div
-          className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black ${shapeClass}`}
-        >
-          {shape ? (
+        <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black">
+          {color ? (
             <WatchGlyph className={`${size === "lg" ? "h-16 w-16" : "h-7 w-7"} text-ice-chrome-dark opacity-80`} />
           ) : (
             <span className="px-4 text-center text-[10px] uppercase tracking-widest text-ice-chrome-dark">
-              Case wählen
+              Farbe wählen
             </span>
           )}
 
@@ -49,16 +37,16 @@ export function WatchPreview({ shape, color, bezel, size = "lg" }: WatchPreviewP
       </div>
 
       {/* Rahmen-Overlay: funkelnder Ring, sobald ein Moissanite-Bezel gewählt ist */}
-      {bezel && <BezelRing className={shapeClass} />}
+      {bezel && <BezelRing />}
     </div>
   );
 }
 
-function BezelRing({ className = "" }: { className?: string }) {
+function BezelRing() {
   return (
     <svg
       viewBox="0 0 100 100"
-      className={`pointer-events-none absolute inset-0 h-full w-full ${className}`}
+      className="pointer-events-none absolute inset-0 h-full w-full rounded-2xl"
       aria-hidden="true"
     >
       <circle
