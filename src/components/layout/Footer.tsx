@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks } from "./nav-links";
+import { navLinks, infoLinks } from "./nav-links";
 import { Logo } from "./Logo";
 
 const legalLinks = [
@@ -34,7 +34,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ice-anthracite">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
           {/* Marke + Newsletter */}
           <div className="lg:col-span-2">
             <Logo height={30} />
@@ -79,6 +79,22 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-white">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Info */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-ice-chrome">
+              Info
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {infoLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-ice-chrome-dark transition-colors hover:text-ice-white">
                     {link.label}

@@ -35,12 +35,6 @@ export function Header() {
           >
             <CartIcon className="h-5 w-5" />
           </Link>
-          <Link
-            href="/custom-builder"
-            className="btn-glow-chrome rounded-full px-5 py-2.5 text-sm font-semibold text-ice-black"
-          >
-            Jetzt individualisieren
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -74,13 +68,6 @@ export function Header() {
             className="rounded-lg px-3 py-3 text-base font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:bg-white/5 hover:text-ice-white"
           >
             Warenkorb
-          </Link>
-          <Link
-            href="/custom-builder"
-            onClick={() => setMenuOpen(false)}
-            className="btn-glow-chrome mt-2 rounded-full px-5 py-3 text-center text-sm font-semibold text-ice-black"
-          >
-            Jetzt individualisieren
           </Link>
         </nav>
       )}
