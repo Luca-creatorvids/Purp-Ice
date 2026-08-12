@@ -6,9 +6,9 @@ import { TrustSection } from "@/components/home/TrustSection";
 import { SocialProof } from "@/components/home/SocialProof";
 
 export const metadata: Metadata = {
-  title: "Iced Out Custom-Uhren mit Moissanite aus München",
+  title: "Iced Out Moissanite-Bezel-Kits aus München",
   description:
-    "Entdecke PURPICE: Iced Out Custom-Uhren mit Moissanite-Steinen aus München. Gleicher Glanz wie Diamanten, fairer Preis. Jetzt individualisieren.",
+    "Entdecke PURPICE: Iced Out Moissanite-Bezel-Kits aus München, ganz einfach selbst montierbar. Gleicher Glanz wie Diamanten, fairer Preis.",
   alternates: { canonical: "/" },
 };
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/lib/products";
+import { finishFilters, type Product } from "@/lib/products";
 
 type ShopProductCardProps = {
   product: Product;
@@ -14,6 +14,8 @@ type ShopProductCardProps = {
  * Weißraum, wie bei hochwertigen Uhren-/Schmuck-Shops üblich.
  */
 export function ShopProductCard({ product, href }: ShopProductCardProps) {
+  const finishLabel = finishFilters.find((f) => f.slug === product.finish)?.label;
+
   const content = (
     <>
       <div className="aspect-square rounded-2xl border border-white/10 bg-ice-anthracite p-8 sm:p-10">
@@ -38,6 +40,9 @@ export function ShopProductCard({ product, href }: ShopProductCardProps) {
       </div>
 
       <div className="mt-4 text-center">
+        {finishLabel && (
+          <p className="text-xs uppercase tracking-widest text-ice-chrome-dark">{finishLabel}</p>
+        )}
         <h3 className="font-headline text-base font-semibold text-ice-white">{product.name}</h3>
         <p className="mt-1 text-sm text-ice-chrome-dark">{product.price} €</p>
       </div>

@@ -1,4 +1,4 @@
-export type Category = "watches" | "bracelets" | "earrings" | "chains" | "pendants";
+export type Category = "bezels" | "bracelets" | "earrings" | "chains" | "pendants";
 
 export type Product = {
   slug: string;
@@ -7,8 +7,8 @@ export type Product = {
   price: number;
   /** Erscheint in der "Best Sellers"-Sektion der jeweiligen Kategorie */
   bestseller?: boolean;
-  /** Filter-Tag für "Shop by Bezel" – nur bei Watches genutzt */
-  bezel?: string;
+  /** Filter-Tag für "Shop by Finish" – nur bei Bezels genutzt */
+  finish?: string;
   /** Filter-Tag für "Shop by Material/Quality" – nur bei Bracelets genutzt */
   quality?: string;
   /** PLATZHALTER: Bildpfad in public/products/ ergänzen, sobald vorhanden */
@@ -16,11 +16,11 @@ export type Product = {
 };
 
 // ---------------------------------------------------------------------
-// Filter-Optionen für "Shop by Bezel" (Watches).
+// Filter-Optionen für "Shop by Finish" (Bezels).
 // PLATZHALTER – Werte/Reihenfolge frei anpassbar. Das "slug" jedes
-// Filters muss mit dem "bezel"-Wert der Produkte weiter unten übereinstimmen.
+// Filters muss mit dem "finish"-Wert der Produkte weiter unten übereinstimmen.
 // ---------------------------------------------------------------------
-export const bezelFilters = [
+export const finishFilters = [
   { slug: "chrome", label: "Chrome" },
   { slug: "gold", label: "Gold" },
   { slug: "two-tone", label: "Two-Tone" },
@@ -41,68 +41,65 @@ export const braceletQualityFilters = [
 // Preise und Bildpfade ein (Bilder in public/products/ ablegen). Jeder
 // Eintrag erscheint automatisch auf der passenden Kategorie-Seite bzw. in
 // der Best-Sellers-Sektion, am Komponenten-Code musst du nichts ändern.
+//
+// WICHTIG: PURPICE verkauft keine kompletten Uhren, sondern nur die
+// Moissanite-Bezel-Kits (Rahmen + Schraubenzieher) zur Selbstmontage auf
+// der eigenen Uhr des Kunden.
 // ---------------------------------------------------------------------
 export const products: Product[] = [
-  // --- WATCHES ---
+  // --- BEZELS (Rahmen-Kits inkl. Schraubenzieher zur Selbstmontage) ---
   {
-    slug: "moon-chrono-iced",
-    name: "Moon Chrono Iced",
-    category: "watches",
-    price: 349,
+    slug: "classic-pave-chrome",
+    name: "Classic Pavé",
+    category: "bezels",
+    price: 249,
     bestseller: true,
-    bezel: "chrome",
+    finish: "chrome",
   },
   {
-    slug: "full-ice-classic",
-    name: "Full Ice Classic",
-    category: "watches",
-    price: 429,
-    bestseller: true,
-    bezel: "two-tone",
+    slug: "classic-pave-gold",
+    name: "Classic Pavé",
+    category: "bezels",
+    price: 269,
+    finish: "gold",
   },
   {
-    slug: "midnight-chrome-edition",
-    name: "Midnight Chrome Edition",
-    category: "watches",
-    price: 499,
+    slug: "twisted-rope-two-tone",
+    name: "Twisted Rope",
+    category: "bezels",
+    price: 279,
     bestseller: true,
-    bezel: "gold",
+    finish: "two-tone",
   },
   {
-    slug: "silver-flex-chain-watch",
-    name: "Silver Flex Chain Watch",
-    category: "watches",
+    slug: "spike-edge-gold",
+    name: "Spike Edge",
+    category: "bezels",
     price: 299,
     bestseller: true,
-    bezel: "chrome",
+    finish: "gold",
   },
   {
-    slug: "spike-bezel-classic",
-    name: "Spike Bezel Classic",
-    category: "watches",
-    price: 379,
-    bezel: "gold",
+    slug: "spike-edge-chrome",
+    name: "Spike Edge",
+    category: "bezels",
+    price: 289,
+    finish: "chrome",
   },
   {
-    slug: "rope-edge-two-tone",
-    name: "Rope Edge Two-Tone",
-    category: "watches",
-    price: 359,
-    bezel: "two-tone",
+    slug: "baguette-cut-two-tone",
+    name: "Baguette Cut",
+    category: "bezels",
+    price: 329,
+    bestseller: true,
+    finish: "two-tone",
   },
   {
-    slug: "pave-chrome-classic",
-    name: "Pavé Chrome Classic",
-    category: "watches",
-    price: 319,
-    bezel: "chrome",
-  },
-  {
-    slug: "baguette-gold-edition",
-    name: "Baguette Gold Edition",
-    category: "watches",
-    price: 459,
-    bezel: "gold",
+    slug: "baguette-cut-chrome",
+    name: "Baguette Cut",
+    category: "bezels",
+    price: 309,
+    finish: "chrome",
   },
 
   // --- BRACELETS ---

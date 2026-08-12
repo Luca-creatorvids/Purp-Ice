@@ -1,18 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { bezelFilters, getBestsellers, getProductsByCategory } from "@/lib/products";
+import { finishFilters, getBestsellers, getProductsByCategory } from "@/lib/products";
 import { ShopProductCard } from "./ShopProductCard";
 import { FilterTabs } from "./FilterTabs";
 
-export function WatchesShopSection() {
-  const [bezel, setBezel] = useState<string | null>(null);
+export function BezelsShopSection() {
+  const [finish, setFinish] = useState<string | null>(null);
 
-  const bestsellers = useMemo(() => getBestsellers("watches"), []);
-  const allWatches = useMemo(() => getProductsByCategory("watches"), []);
+  const bestsellers = useMemo(() => getBestsellers("bezels"), []);
+  const allBezels = useMemo(() => getProductsByCategory("bezels"), []);
   const filtered = useMemo(
-    () => (bezel ? allWatches.filter((product) => product.bezel === bezel) : allWatches),
-    [allWatches, bezel]
+    () => (finish ? allBezels.filter((product) => product.finish === finish) : allBezels),
+    [allBezels, finish]
   );
 
   return (
@@ -22,11 +22,12 @@ export function WatchesShopSection() {
           Shop
         </span>
         <h1 className="font-headline mt-2 text-3xl font-bold sm:text-4xl">
-          <span className="text-gradient-ice">Watches</span>
+          <span className="text-gradient-ice">Bezels</span>
         </h1>
         <p className="mt-3 max-w-xl text-sm text-ice-chrome-dark">
-          Iced Out Uhren mit Moissanite-Besatz – fertig konfiguriert, einzeln
-          erhältlich.
+          Moissanite-Bezel-Kits zum Nachrüsten deiner eigenen Uhr – jedes Kit
+          enthält den Rahmen und einen Schraubenzieher zur einfachen
+          Selbstmontage.
         </p>
       </header>
 
@@ -37,29 +38,29 @@ export function WatchesShopSection() {
         </h2>
         <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
           {bestsellers.map((product) => (
-            <ShopProductCard key={product.slug} product={product} href={`/watches/${product.slug}`} />
+            <ShopProductCard key={product.slug} product={product} href={`/bezels/${product.slug}`} />
           ))}
         </div>
       </section>
 
-      {/* Shop by Bezel */}
+      {/* Shop by Finish */}
       <section className="mt-16 border-t border-white/10 pt-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-ice-chrome">
-          Shop by Bezel
+          Shop by Finish
         </h2>
         <div className="mt-5">
-          <FilterTabs options={bezelFilters} value={bezel} onChange={setBezel} allLabel="All Bezels" />
+          <FilterTabs options={finishFilters} value={finish} onChange={setFinish} allLabel="All Finishes" />
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
           {filtered.map((product) => (
-            <ShopProductCard key={product.slug} product={product} href={`/watches/${product.slug}`} />
+            <ShopProductCard key={product.slug} product={product} href={`/bezels/${product.slug}`} />
           ))}
         </div>
 
         {filtered.length === 0 && (
           <p className="mt-8 text-sm text-ice-chrome-dark">
-            Keine Uhren mit diesem Bezel-Stil gefunden.
+            Keine Bezels mit diesem Finish gefunden.
           </p>
         )}
       </section>

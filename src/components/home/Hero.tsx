@@ -20,17 +20,17 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-ice-chrome-dark">
-            PURPICE bringt Luxus-Streetwear und Uhrmacherkunst zusammen: Custom-Uhren,
-            besetzt mit Moissanite-Steinen – gleicher Glanz wie echte Diamanten, aber
-            ohne den Luxuspreis. Kein steifes Rolex-Gehabe. Einfach hyped.
+            PURPICE bringt Luxus-Streetwear und Uhrmacherkunst zusammen: Moissanite-Bezel-Kits
+            zum Nachrüsten deiner eigenen Uhr – gleicher Glanz wie echte Diamanten, aber ohne
+            den Luxuspreis. Kein steifes Rolex-Gehabe. Einfach hyped.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
-              href="/watches"
+              href="/bezels"
               className="btn-glow-chrome rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-black"
             >
-              Shop Watches
+              Shop Bezels
             </Link>
             <Link
               href="/bracelets"
