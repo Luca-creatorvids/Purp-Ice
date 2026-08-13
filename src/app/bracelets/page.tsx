@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 export default function BraceletsPage() {
   return (
     <ComingSoon
+      current="/bracelets"
       title="Bracelets"
-      description="Best Sellers und die Auswahl nach Premium/Standard Silver bauen wir als Nächstes."
+      description="Diese Kollektion ist noch nicht im Sortiment. Trag dich ein und wir sagen dir Bescheid, sobald es losgeht."
     />
   );
 }

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { finishFilters, getBestsellers, getProductsByCategory } from "@/lib/products";
 import { ShopProductCard } from "./ShopProductCard";
 import { FilterTabs } from "./FilterTabs";
+import { CategoryTabs } from "./CategoryTabs";
 
 export function BezelsShopSection() {
   const [finish, setFinish] = useState<string | null>(null);
@@ -17,7 +18,9 @@ export function BezelsShopSection() {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16">
-      <header>
+      <CategoryTabs current="/bezels" />
+
+      <header className="mt-8">
         <span className="text-xs font-semibold uppercase tracking-widest text-ice-chrome-dark">
           Shop
         </span>

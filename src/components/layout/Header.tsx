@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { navLinks } from "./nav-links";
 import { Logo } from "./Logo";
+import { useCart } from "@/components/cart/CartProvider";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { totalCount } = useCart();
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ice-black/80 backdrop-blur-md">
@@ -27,13 +29,18 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          {/* Warenkorb-Mockup (kein echtes Backend) */}
+          {/* Warenkorb: kein echtes Payment-Backend, aber echte Warenkorb-Verwaltung im Browser */}
           <Link
             href="/warenkorb"
-            aria-label="Warenkorb"
-            className="rounded-full border border-white/15 p-2.5 text-ice-white transition-colors hover:border-ice-chrome hover:text-ice-white"
+            aria-label={`Warenkorb${totalCount > 0 ? ` (${totalCount})` : ""}`}
+            className="relative rounded-full border border-white/15 p-2.5 text-ice-white transition-colors hover:border-ice-chrome hover:text-ice-white"
           >
             <CartIcon className="h-5 w-5" />
+            {totalCount > 0 && (
+              <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-ice-chrome px-1 text-[10px] font-bold text-ice-black">
+                {totalCount}
+              </span>
+            )}
           </Link>
         </div>
 
@@ -67,7 +74,7 @@ export function Header() {
             onClick={() => setMenuOpen(false)}
             className="rounded-lg px-3 py-3 text-base font-medium uppercase tracking-wide text-ice-chrome transition-colors hover:bg-white/5 hover:text-ice-white"
           >
-            Warenkorb
+            Warenkorb{totalCount > 0 ? ` (${totalCount})` : ""}
           </Link>
         </nav>
       )}

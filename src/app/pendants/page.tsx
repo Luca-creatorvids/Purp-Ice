@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 export default function PendantsPage() {
   return (
     <ComingSoon
+      current="/pendants"
       title="Pendants"
-      description="Diese Kollektion ist noch nicht im Sortiment. Eine eigene Coming-Soon-Seite mit Newsletter-Anmeldung folgt als Nächstes."
+      description="Diese Kollektion ist noch nicht im Sortiment. Trag dich ein und wir sagen dir Bescheid, sobald es losgeht."
     />
   );
 }

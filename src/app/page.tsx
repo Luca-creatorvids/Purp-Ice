@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { BrandIntro } from "@/components/home/BrandIntro";
+import { WornBy } from "@/components/home/WornBy";
 import { BestsellerSlider } from "@/components/home/BestsellerSlider";
 import { TrustSection } from "@/components/home/TrustSection";
 import { SocialProof } from "@/components/home/SocialProof";
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <Hero />
       <BrandIntro />
+      <WornBy />
       <BestsellerSlider />
       <TrustSection />
       <SocialProof />

@@ -10,19 +10,17 @@ export function Hero() {
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-16 lg:grid-cols-2 lg:px-10 lg:pt-24">
         <div>
           <span className="inline-block rounded-full border border-ice-chrome/30 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ice-chrome">
-            Made in München
+            Made in Munich
           </span>
 
           <h1 className="font-headline mt-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="text-gradient-ice">ICED OUT.</span>
+            <span className="text-gradient-ice">Iced out.</span>
             <br />
-            <span className="text-ice-white">MADE IN MUNICH.</span>
+            <span className="text-ice-white">Built different.</span>
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-ice-chrome-dark">
-            PURPICE bringt Luxus-Streetwear und Uhrmacherkunst zusammen: Moissanite-Bezel-Kits
-            zum Nachrüsten deiner eigenen Uhr – gleicher Glanz wie echte Diamanten, aber ohne
-            den Luxuspreis. Kein steifes Rolex-Gehabe. Einfach hyped.
+            Jewellery, crafted with moissanite brilliance — made in Munich.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">

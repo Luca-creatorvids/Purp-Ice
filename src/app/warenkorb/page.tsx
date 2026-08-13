@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/ui/ComingSoon";
+import { CartView } from "@/components/cart/CartView";
 
 export const metadata: Metadata = {
   title: "Warenkorb",
@@ -8,10 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function WarenkorbPage() {
-  return (
-    <ComingSoon
-      title="Warenkorb"
-      description="Hier entsteht später der Checkout-Flow als Mockup (ohne echtes Zahlungs-Backend)."
-    />
-  );
+  return <CartView />;
 }

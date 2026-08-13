@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { finishFilters, getProductsByCategory } from "@/lib/products";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 
 export function generateStaticParams() {
   return getProductsByCategory("bezels").map((product) => ({ slug: product.slug }));
@@ -87,12 +88,17 @@ export default async function BezelDetailPage({
             </p>
           </div>
 
-          <button
-            type="button"
-            className="btn-glow-chrome mt-8 w-full rounded-full px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-black sm:w-auto sm:px-10"
-          >
-            In den Warenkorb
-          </button>
+          <div className="mt-8">
+            <AddToCartButton
+              product={{
+                slug: product.slug,
+                name: product.name,
+                price: product.price,
+                category: product.category,
+                finish: product.finish,
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
