@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------------
-// Trage hier den Pfad zu deiner Bezel-Animation ein. Video-Datei liegt in
+// Trage hier den Pfad zu deiner Chain-Animation ein. Video-Datei liegt in
 // public/animations/ – neue Animation einfach dort ablegen und Pfad hier
 // anpassen. "null" zeigt stattdessen den Platzhalter mit Play-Symbol.
 //
 // HINWEIS: Das vorherige Video zeigte eine Casio G-Shock samt Logo – da
 // PURPICE keine kompletten (fremdmarkigen) Uhren verkauft, ist hier
 // bewusst wieder "null" gesetzt. Neues Video ohne fremdes Marken-Logo
-// hier eintragen, sobald verfügbar (z.B. Nahaufnahme nur vom Bezel).
+// hier eintragen (Nahaufnahme einer Chain), sobald verfügbar.
 // ---------------------------------------------------------------------
 const HERO_ANIMATION_SRC: string | null = null;
 const HERO_ANIMATION_POSTER: string | undefined = undefined;
@@ -19,13 +19,13 @@ const EDGE_FADE_MASK =
 
 /**
  * Reservierter Platz ganz oben auf der Startseite (im Hero-Bereich) für
- * eine Bezel-Animation. Sobald HERO_ANIMATION_SRC gesetzt ist, läuft das
+ * eine Chain-Animation. Sobald HERO_ANIMATION_SRC gesetzt ist, läuft das
  * Video direkt auf dem Seitenhintergrund – bewusst ohne Rahmen/Karte,
  * mit weich ausgeblendetem Rand, damit es mit dem schwarzen Hintergrund
  * der Seite verschmilzt (das Video selbst hat ebenfalls einen schwarzen
  * Hintergrund).
  */
-export function WatchAnimationSlot({ className = "" }: { className?: string }) {
+export function HeroAnimationSlot({ className = "" }: { className?: string }) {
   if (HERO_ANIMATION_SRC) {
     return (
       <video
@@ -48,7 +48,7 @@ export function WatchAnimationSlot({ className = "" }: { className?: string }) {
     >
       <PlayGlyph className="h-14 w-14 opacity-60" />
       <span className="px-6 text-center text-xs uppercase tracking-widest">
-        Bezel-Animation folgt
+        Chain-Animation folgt
       </span>
     </div>
   );

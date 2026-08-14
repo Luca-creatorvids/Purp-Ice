@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ParallaxGlow } from "./ParallaxGlow";
-import { WatchAnimationSlot } from "./WatchAnimationSlot";
+import { HeroAnimationSlot } from "./HeroAnimationSlot";
 
 export function Hero() {
   return (
@@ -28,20 +28,20 @@ export function Hero() {
               href="/bezels"
               className="btn-glow-chrome rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-black"
             >
-              Shop Bezels
+              Bezels
             </Link>
             <Link
               href="/bracelets"
               className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-white transition-colors hover:border-ice-chrome hover:text-ice-chrome"
             >
-              Shop Bracelets
+              Bracelets
             </Link>
           </div>
         </div>
 
-        {/* Hero-Animationsplatz: siehe components/home/WatchAnimationSlot.tsx */}
+        {/* Hero-Animationsplatz: siehe components/home/HeroAnimationSlot.tsx */}
         <div className="relative mx-auto w-full max-w-md">
-          <WatchAnimationSlot />
+          <HeroAnimationSlot />
         </div>
       </div>
     </section>

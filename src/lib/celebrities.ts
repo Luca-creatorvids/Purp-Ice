@@ -15,6 +15,4 @@ export const celebrities: Celebrity[] = [
   { name: "Name folgt" },
   { name: "Name folgt" },
   { name: "Name folgt" },
-  { name: "Name folgt" },
-  { name: "Name folgt" },
 ];
