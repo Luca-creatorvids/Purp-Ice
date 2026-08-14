@@ -5,7 +5,7 @@ import Image from "next/image";
 // public/images/ ablegen und den Pfad hier eintragen (oder "null" für
 // einen leeren Bereich, falls du das Bild mal entfernen willst).
 // ---------------------------------------------------------------------
-const DIAMOND_IMAGE_SRC: string | null = "/images/diamond.jpg";
+const DIAMOND_IMAGE_SRC: string | null = null;
 
 // Seitenverhältnis des aktuellen Bilds (Hochformat-Nahaufnahme): 768 x 1376 px.
 const DIAMOND_IMAGE_RATIO = "768/1376";
