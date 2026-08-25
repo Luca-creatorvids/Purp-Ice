@@ -1,9 +1,21 @@
+import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 
-// PLATZHALTER: Diese Kacheln spaeter durch einen echten Instagram-Feed
-// (z.B. via Instagram Basic Display API oder ein Tool wie SnapWidget/Elfsight)
-// oder durch echte Kundenbilder / Rapper-Flexes ersetzen.
-const placeholderPosts = Array.from({ length: 8 }, (_, index) => index);
+// ---------------------------------------------------------------------
+// Kundenbilder unter dem "@purpice"-Aufruf. Neue Bilder einfach in
+// public/community/ ablegen und hier eintragen (oder "image: undefined"
+// lassen für eine leere Platzhalter-Kachel).
+// ---------------------------------------------------------------------
+const posts: { image?: string }[] = [
+  { image: "/community/community-1.jpg" },
+  { image: "/community/community-2.jpg" },
+  { image: "/community/community-3.jpg" },
+  {},
+  {},
+  {},
+  {},
+  {},
+];
 
 export function SocialProof() {
   return (
@@ -11,25 +23,33 @@ export function SocialProof() {
       <Reveal>
         <div className="text-center">
           <h2 className="font-headline text-3xl font-bold sm:text-4xl">
-            Getragen. Gepostet. <span className="text-gradient-ice">Geiced.</span>
+            <span className="text-gradient-ice">@purpice</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-ice-chrome-dark">
-            Folge @purpice auf Instagram und TikTok – tagge uns in deinen Fotos für
-            die Chance, hier featured zu werden.
+          <p className="mx-auto mt-3 max-w-xl text-sm text-ice-chrome-dark">
+            Markiere @purpice auf deinem Instagram-Beitrag und lande auf unserer Website.
           </p>
         </div>
       </Reveal>
 
       <Reveal delay={100}>
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {placeholderPosts.map((index) => (
+          {posts.map((post, index) => (
             <div
               key={index}
               className="group relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-ice-anthracite-light to-ice-black"
             >
-              <div className="flex h-full w-full items-center justify-center text-ice-chrome-dark">
-                <InstagramGlyph className="h-8 w-8 opacity-50 transition-opacity group-hover:opacity-90" />
-              </div>
+              {post.image ? (
+                <Image
+                  src={post.image}
+                  alt="PURPICE Kundenfoto"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-ice-chrome-dark">
+                  <InstagramGlyph className="h-8 w-8 opacity-50 transition-opacity group-hover:opacity-90" />
+                </div>
+              )}
               <div className="sparkle-layer" aria-hidden="true" />
             </div>
           ))}

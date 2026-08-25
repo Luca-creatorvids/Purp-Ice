@@ -29,6 +29,9 @@ export function WornBy() {
                 <VerifiedBadge className="absolute bottom-0 right-0 h-6 w-6 rounded-full ring-2 ring-ice-black" />
               </div>
               <span className="text-xs text-ice-chrome-dark">{celebrity.name}</span>
+              {celebrity.handle && (
+                <span className="-mt-2.5 text-[0.65rem] text-ice-chrome-dark/60">{celebrity.handle}</span>
+              )}
             </div>
           ))}
         </div>
