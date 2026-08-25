@@ -4,7 +4,7 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { getBestsellers } from "@/lib/products";
 
 export function BestsellerSlider() {
-  const bestsellers = getBestsellers("bezels");
+  const bestsellers = getBestsellers("watches");
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
@@ -14,10 +14,10 @@ export function BestsellerSlider() {
             Bestseller
           </h2>
           <Link
-            href="/bezels"
+            href="/watches"
             className="text-sm font-semibold uppercase tracking-wide text-ice-chrome hover:text-ice-white transition-colors"
           >
-            Alle Bezels ansehen →
+            Alle Watches ansehen →
           </Link>
         </div>
       </Reveal>

@@ -1,4 +1,4 @@
-export type Category = "bezels" | "bracelets" | "earrings" | "chains" | "pendants";
+export type Category = "watches" | "bezels" | "bracelets" | "earrings" | "chains" | "pendants";
 
 export type Product = {
   slug: string;
@@ -24,6 +24,7 @@ export const finishFilters = [
   { slug: "chrome", label: "Chrome" },
   { slug: "gold", label: "Gold" },
   { slug: "two-tone", label: "Two-Tone" },
+  { slug: "black", label: "Black" },
 ];
 
 // ---------------------------------------------------------------------
@@ -42,11 +43,45 @@ export const braceletQualityFilters = [
 // Eintrag erscheint automatisch auf der passenden Kategorie-Seite bzw. in
 // der Best-Sellers-Sektion, am Komponenten-Code musst du nichts ändern.
 //
-// WICHTIG: PURPICE verkauft keine kompletten Uhren, sondern nur die
-// Moissanite-Bezel-Kits (Rahmen + Schraubenzieher) zur Selbstmontage auf
-// der eigenen Uhr des Kunden.
+// WATCHES kommen bereits mit werkseitig montiertem Moissanite-Bezel und
+// sind sofort tragbereit. BEZELS bleiben zusätzlich einzeln erhältlich,
+// für alle, die den Rahmen selbst auf ihrer eigenen Uhr montieren wollen.
 // ---------------------------------------------------------------------
 export const products: Product[] = [
+  // --- WATCHES (komplette Uhr, Bezel bereits montiert) ---
+  {
+    slug: "classic-chrome",
+    name: "Classic Chrome",
+    category: "watches",
+    price: 549,
+    bestseller: true,
+    finish: "chrome",
+  },
+  {
+    slug: "classic-gold",
+    name: "Classic Gold",
+    category: "watches",
+    price: 599,
+    bestseller: true,
+    finish: "gold",
+  },
+  {
+    slug: "two-tone-elite",
+    name: "Two-Tone Elite",
+    category: "watches",
+    price: 629,
+    bestseller: true,
+    finish: "two-tone",
+  },
+  {
+    slug: "full-black",
+    name: "Full Black",
+    category: "watches",
+    price: 579,
+    bestseller: true,
+    finish: "black",
+  },
+
   // --- BEZELS (Rahmen-Kits inkl. Schraubenzieher zur Selbstmontage) ---
   {
     slug: "classic-pave-chrome",

@@ -21,12 +21,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.purpice.com"),
   title: {
-    default: "PURPICE – Iced Out Moissanite-Bezel-Kits & Schmuck aus München",
+    default: "PURPICE – Iced Out Moissanite-Watches & Schmuck aus München",
     template: "%s | PURPICE",
   },
   description:
-    "PURPICE ist eine Schmuckmarke aus München, spezialisiert auf 'Iced Out' Moissanite-Bezel-Kits zum Selbstmontieren sowie Bracelets, Chains, Pendants und Earrings. Diamant-Optik zum fairen Preis.",
+    "PURPICE ist eine Schmuckmarke aus München, spezialisiert auf 'Iced Out' Moissanite-Watches und Bezel-Kits zum Selbstmontieren sowie Bracelets, Chains, Pendants und Earrings. Diamant-Optik zum fairen Preis.",
   keywords: [
+    "Iced Out Watch",
     "Iced Out Bezel",
     "Moissanite Bezel Kit",
     "Moissanite Schmuck München",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PURPICE – Iced Out. Made in Munich.",
     description:
-      "Iced Out Moissanite-Bezel-Kits und Schmuck aus München. Gleicher Glanz wie Diamanten, fairer Preis.",
+      "Iced Out Moissanite-Watches und Bezel-Kits aus München. Gleicher Glanz wie Diamanten, fairer Preis.",
     url: "https://www.purpice.com",
     siteName: "PURPICE",
     locale: "de_DE",
