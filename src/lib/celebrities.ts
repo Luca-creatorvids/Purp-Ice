@@ -4,6 +4,8 @@ export type Celebrity = {
   handle?: string;
   /** PLATZHALTER: Bildpfad in public/celebrities/ ergänzen, sobald vorhanden */
   image?: string;
+  /** Optionales zusätzliches Foto (z.B. mit der Uhr), erscheint unter Name/Handle */
+  proofImage?: string;
 };
 
 // ---------------------------------------------------------------------
@@ -18,6 +20,7 @@ export const celebrities: Celebrity[] = [
     name: "Castello Jr Lukeba",
     handle: "@jrcastello_",
     image: "/celebrities/castello-jr-lukeba.jpg",
+    proofImage: "/celebrities/castello-jr-lukeba-watch.jpg",
   },
   { name: "Name folgt" },
   { name: "Name folgt" },

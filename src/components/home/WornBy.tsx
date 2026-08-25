@@ -32,6 +32,16 @@ export function WornBy() {
               {celebrity.handle && (
                 <span className="-mt-2.5 text-[0.65rem] text-ice-chrome-dark/60">{celebrity.handle}</span>
               )}
+              {celebrity.proofImage && (
+                <div className="relative mt-1 h-32 w-24 shrink-0 overflow-hidden rounded-xl border border-white/10">
+                  <Image
+                    src={celebrity.proofImage}
+                    alt={`${celebrity.name} trägt PURPICE`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>
