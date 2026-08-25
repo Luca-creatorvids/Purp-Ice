@@ -39,7 +39,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Logo height={30} />
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-ice-chrome-dark">
-              Iced Out Moissanite-Watches & Bezel-Kits – entworfen in München.
+              Iced Out Moissanite-Watches – entworfen in München.
               Gleicher Glanz wie Diamanten, fairer Preis.
             </p>
 

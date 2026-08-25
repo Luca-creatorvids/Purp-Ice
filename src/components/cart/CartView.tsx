@@ -17,9 +17,9 @@ export function CartView() {
           Dein Warenkorb ist leer
         </h1>
         <p className="mt-3 text-sm text-ice-chrome-dark">
-          Schau dich in unseren Bezel-Kits um und finde dein Stück.
+          Schau dich in unseren Watches um und finde dein Stück.
         </p>
-        <Link href="/bezels" className="btn-glow-chrome mt-6 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ice-black">
+        <Link href="/watches" className="btn-glow-chrome mt-6 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ice-black">
           Jetzt shoppen
         </Link>
       </div>

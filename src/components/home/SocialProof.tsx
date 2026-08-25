@@ -6,9 +6,9 @@ import { Reveal } from "@/components/ui/Reveal";
 // public/community/ ablegen und hier eintragen (oder "image: undefined"
 // lassen für eine leere Platzhalter-Kachel).
 // ---------------------------------------------------------------------
-const posts: { image?: string }[] = [
-  { image: "/community/community-1.jpg" },
-  { image: "/community/community-2.jpg" },
+const posts: { image?: string; focusTop?: boolean }[] = [
+  { image: "/community/community-1.jpg", focusTop: true },
+  { image: "/community/community-2.jpg", focusTop: true },
   { image: "/community/community-3.jpg" },
   {},
   {},
@@ -43,7 +43,9 @@ export function SocialProof() {
                   src={post.image}
                   alt="PURPICE Kundenfoto"
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className={`object-cover transition-transform duration-300 group-hover:scale-105 ${
+                    post.focusTop ? "object-top" : ""
+                  }`}
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center text-ice-chrome-dark">

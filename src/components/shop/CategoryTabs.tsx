@@ -2,13 +2,13 @@ import Link from "next/link";
 import { navLinks } from "@/components/layout/nav-links";
 
 type CategoryTabsProps = {
-  /** href der aktuellen Kategorie, z.B. "/bezels" */
+  /** href der aktuellen Kategorie, z.B. "/watches" */
   current: string;
 };
 
 /**
  * Immer sichtbare Kategorie-Leiste oben auf jeder Shop-Seite, damit man
- * jederzeit direkt zwischen Bezels/Bracelets/Earrings/Chains/Pendants
+ * jederzeit direkt zwischen Watches/Bracelets/Earrings/Chains/Pendants
  * wechseln kann, ohne zurück zur Startseite zu müssen.
  */
 export function CategoryTabs({ current }: CategoryTabsProps) {

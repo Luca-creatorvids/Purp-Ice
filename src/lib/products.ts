@@ -1,4 +1,4 @@
-export type Category = "watches" | "bezels" | "bracelets" | "earrings" | "chains" | "pendants";
+export type Category = "watches" | "bracelets" | "earrings" | "chains" | "pendants";
 
 export type Product = {
   slug: string;
@@ -7,7 +7,7 @@ export type Product = {
   price: number;
   /** Erscheint in der "Best Sellers"-Sektion der jeweiligen Kategorie */
   bestseller?: boolean;
-  /** Filter-Tag für "Shop by Finish" – nur bei Bezels genutzt */
+  /** Filter-Tag für "Shop by Finish" – nur bei Watches genutzt */
   finish?: string;
   /** Filter-Tag für "Shop by Material/Quality" – nur bei Bracelets genutzt */
   quality?: string;
@@ -16,7 +16,7 @@ export type Product = {
 };
 
 // ---------------------------------------------------------------------
-// Filter-Optionen für "Shop by Finish" (Bezels).
+// Filter-Optionen für "Shop by Finish" (Watches).
 // PLATZHALTER – Werte/Reihenfolge frei anpassbar. Das "slug" jedes
 // Filters muss mit dem "finish"-Wert der Produkte weiter unten übereinstimmen.
 // ---------------------------------------------------------------------
@@ -44,8 +44,7 @@ export const braceletQualityFilters = [
 // der Best-Sellers-Sektion, am Komponenten-Code musst du nichts ändern.
 //
 // WATCHES kommen bereits mit werkseitig montiertem Moissanite-Bezel und
-// sind sofort tragbereit. BEZELS bleiben zusätzlich einzeln erhältlich,
-// für alle, die den Rahmen selbst auf ihrer eigenen Uhr montieren wollen.
+// sind sofort tragbereit.
 // ---------------------------------------------------------------------
 export const products: Product[] = [
   // --- WATCHES (komplette Uhr, Bezel bereits montiert) ---
@@ -80,61 +79,6 @@ export const products: Product[] = [
     price: 579,
     bestseller: true,
     finish: "black",
-  },
-
-  // --- BEZELS (Rahmen-Kits inkl. Schraubenzieher zur Selbstmontage) ---
-  {
-    slug: "classic-pave-chrome",
-    name: "Classic Pavé",
-    category: "bezels",
-    price: 249,
-    bestseller: true,
-    finish: "chrome",
-  },
-  {
-    slug: "classic-pave-gold",
-    name: "Classic Pavé",
-    category: "bezels",
-    price: 269,
-    finish: "gold",
-  },
-  {
-    slug: "twisted-rope-two-tone",
-    name: "Twisted Rope",
-    category: "bezels",
-    price: 279,
-    bestseller: true,
-    finish: "two-tone",
-  },
-  {
-    slug: "spike-edge-gold",
-    name: "Spike Edge",
-    category: "bezels",
-    price: 299,
-    bestseller: true,
-    finish: "gold",
-  },
-  {
-    slug: "spike-edge-chrome",
-    name: "Spike Edge",
-    category: "bezels",
-    price: 289,
-    finish: "chrome",
-  },
-  {
-    slug: "baguette-cut-two-tone",
-    name: "Baguette Cut",
-    category: "bezels",
-    price: 329,
-    bestseller: true,
-    finish: "two-tone",
-  },
-  {
-    slug: "baguette-cut-chrome",
-    name: "Baguette Cut",
-    category: "bezels",
-    price: 309,
-    finish: "chrome",
   },
 
   // --- BRACELETS ---

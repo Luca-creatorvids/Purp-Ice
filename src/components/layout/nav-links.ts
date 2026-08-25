@@ -2,7 +2,6 @@
 // Englisch, wie bei bekannten Iced-Out-Jewelry-Brands üblich.
 export const navLinks = [
   { href: "/watches", label: "Watches" },
-  { href: "/bezels", label: "Bezels" },
   { href: "/bracelets", label: "Bracelets" },
   { href: "/earrings", label: "Earrings" },
   { href: "/chains", label: "Chains" },

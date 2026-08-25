@@ -4,7 +4,7 @@ type FilterTabsProps = {
   options: FilterOption[];
   value: string | null;
   onChange: (slug: string | null) => void;
-  /** Label für die "alle anzeigen"-Option, z.B. "All Bezels" */
+  /** Label für die "alle anzeigen"-Option, z.B. "All Finishes" */
   allLabel?: string;
 };
 

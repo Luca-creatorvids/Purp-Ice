@@ -25,11 +25,10 @@ export const metadata: Metadata = {
     template: "%s | PURPICE",
   },
   description:
-    "PURPICE ist eine Schmuckmarke aus München, spezialisiert auf 'Iced Out' Moissanite-Watches und Bezel-Kits zum Selbstmontieren sowie Bracelets, Chains, Pendants und Earrings. Diamant-Optik zum fairen Preis.",
+    "PURPICE ist eine Schmuckmarke aus München, spezialisiert auf 'Iced Out' Moissanite-Watches sowie Bracelets, Chains, Pendants und Earrings. Diamant-Optik zum fairen Preis.",
   keywords: [
     "Iced Out Watch",
-    "Iced Out Bezel",
-    "Moissanite Bezel Kit",
+    "Moissanite Watch",
     "Moissanite Schmuck München",
     "PURPICE",
     "Iced Out Schmuck",
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PURPICE – Iced Out. Made in Munich.",
     description:
-      "Iced Out Moissanite-Watches und Bezel-Kits aus München. Gleicher Glanz wie Diamanten, fairer Preis.",
+      "Iced Out Moissanite-Watches aus München. Gleicher Glanz wie Diamanten, fairer Preis.",
     url: "https://www.purpice.com",
     siteName: "PURPICE",
     locale: "de_DE",

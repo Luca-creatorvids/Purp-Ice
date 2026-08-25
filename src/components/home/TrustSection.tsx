@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { DiamondTestVideo } from "./DiamondTestVideo";
 
 const trustPoints = [
   {
@@ -12,14 +13,14 @@ const trustPoints = [
       "Mit einer Härte von 9,25 auf der Mohs-Skala hält Moissanite dem Alltag locker stand.",
   },
   {
-    title: "Ethisch vertretbar",
-    description:
-      "Moissanite wird im Labor hergestellt – kein Konfliktrohstoff, kein Minenabbau.",
-  },
-  {
     title: "Fairer Preis",
     description:
       "Bis zu 90% günstiger als vergleichbarer Diamant-Besatz – Iced Out ohne Kompromisse beim Budget.",
+  },
+  {
+    title: "Besteht den Diamond Test",
+    description:
+      "Im professionellen Diamond-Tester-Check schlägt Moissanite an wie ein echter Diamant – seht selbst im Video.",
   },
 ];
 
@@ -48,6 +49,8 @@ export function TrustSection() {
             </Reveal>
           ))}
         </div>
+
+        <DiamondTestVideo />
       </div>
     </section>
   );

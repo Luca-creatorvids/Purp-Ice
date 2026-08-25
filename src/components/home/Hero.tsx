@@ -25,16 +25,10 @@ export function Hero() {
 
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
-              href="/bezels"
+              href="/watches"
               className="btn-glow-chrome rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-black"
             >
-              Bezels
-            </Link>
-            <Link
-              href="/bracelets"
-              className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-ice-white transition-colors hover:border-ice-chrome hover:text-ice-chrome"
-            >
-              Bracelets
+              Watches
             </Link>
           </div>
         </div>
