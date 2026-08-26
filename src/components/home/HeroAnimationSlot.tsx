@@ -1,15 +1,11 @@
 // ---------------------------------------------------------------------
-// Trage hier den Pfad zu deiner Chain-Animation ein. Video-Datei liegt in
-// public/animations/ – neue Animation einfach dort ablegen und Pfad hier
-// anpassen. "null" zeigt stattdessen den Platzhalter mit Play-Symbol.
-//
-// HINWEIS: Das vorherige Video zeigte eine Casio G-Shock samt Logo – da
-// PURPICE keine kompletten (fremdmarkigen) Uhren verkauft, ist hier
-// bewusst wieder "null" gesetzt. Neues Video ohne fremdes Marken-Logo
-// hier eintragen (Nahaufnahme einer Chain), sobald verfügbar.
+// Hero-Loop: Nahaufnahme einer Iced-Out-Uhr. Liegt in public/animations/
+// als mp4 (breite Kompatibilität) + webm (Fallback). "null" zeigt
+// stattdessen den Platzhalter mit Play-Symbol.
 // ---------------------------------------------------------------------
-const HERO_ANIMATION_SRC: string | null = null;
-const HERO_ANIMATION_POSTER: string | undefined = undefined;
+const HERO_ANIMATION_SRC_MP4: string | null = "/animations/hero-watch.mp4";
+const HERO_ANIMATION_SRC_WEBM: string | null = "/animations/hero-watch.webm";
+const HERO_ANIMATION_POSTER: string | undefined = "/animations/hero-watch-poster.jpg";
 
 // Blendet den Rand des Videos weich aus, statt ihn hart abzuschneiden –
 // dadurch verschmilzt das rechteckige Video optisch mit dem schwarzen
@@ -19,17 +15,15 @@ const EDGE_FADE_MASK =
 
 /**
  * Reservierter Platz ganz oben auf der Startseite (im Hero-Bereich) für
- * eine Chain-Animation. Sobald HERO_ANIMATION_SRC gesetzt ist, läuft das
- * Video direkt auf dem Seitenhintergrund – bewusst ohne Rahmen/Karte,
- * mit weich ausgeblendetem Rand, damit es mit dem schwarzen Hintergrund
- * der Seite verschmilzt (das Video selbst hat ebenfalls einen schwarzen
- * Hintergrund).
+ * die Uhren-Loop-Animation. Läuft direkt auf dem Seitenhintergrund –
+ * bewusst ohne Rahmen/Karte, mit weich ausgeblendetem Rand, damit es mit
+ * dem schwarzen Hintergrund der Seite verschmilzt (das Video selbst hat
+ * ebenfalls einen schwarzen Hintergrund).
  */
 export function HeroAnimationSlot({ className = "" }: { className?: string }) {
-  if (HERO_ANIMATION_SRC) {
+  if (HERO_ANIMATION_SRC_MP4) {
     return (
       <video
-        src={HERO_ANIMATION_SRC}
         poster={HERO_ANIMATION_POSTER}
         autoPlay
         loop
@@ -38,7 +32,10 @@ export function HeroAnimationSlot({ className = "" }: { className?: string }) {
         preload="auto"
         style={{ maskImage: EDGE_FADE_MASK, WebkitMaskImage: EDGE_FADE_MASK }}
         className={`block w-full ${className}`}
-      />
+      >
+        <source src={HERO_ANIMATION_SRC_MP4} type="video/mp4" />
+        {HERO_ANIMATION_SRC_WEBM && <source src={HERO_ANIMATION_SRC_WEBM} type="video/webm" />}
+      </video>
     );
   }
 
@@ -48,7 +45,7 @@ export function HeroAnimationSlot({ className = "" }: { className?: string }) {
     >
       <PlayGlyph className="h-14 w-14 opacity-60" />
       <span className="px-6 text-center text-xs uppercase tracking-widest">
-        Chain-Animation folgt
+Animation folgt
       </span>
     </div>
   );
