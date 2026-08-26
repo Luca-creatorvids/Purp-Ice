@@ -57,7 +57,7 @@ export function SocialProof() {
       <Reveal delay={150}>
         <div
           className="group relative mx-auto mt-4 w-full max-w-2xl overflow-hidden rounded-xl border border-white/10"
-          style={{ aspectRatio: "1170/1469" }}
+          style={{ aspectRatio: "1000/1668" }}
         >
           <Image
             src="/community/lafami-group.jpg"

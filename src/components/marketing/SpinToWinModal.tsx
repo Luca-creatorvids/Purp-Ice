@@ -62,7 +62,29 @@ export function SpinToWinModal() {
     setOpen(false);
   }
 
-  if (!open) return null;
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label="Spin to Win öffnen"
+        className="fixed bottom-6 left-6 z-40 flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/20 shadow-[0_0_25px_rgba(230,229,231,0.25)] transition-transform hover:scale-105"
+      >
+        <span
+          className="absolute inset-0 rounded-full"
+          style={{ background: gradient, animation: "spin-slow 9s linear infinite" }}
+          aria-hidden="true"
+        />
+        <span className="absolute inset-[5px] flex items-center justify-center rounded-full bg-ice-black text-center leading-tight">
+          <span className="text-[0.6rem] font-bold uppercase tracking-wide text-ice-white">
+            Spin
+            <br />
+            to Win
+          </span>
+        </span>
+      </button>
+    );
+  }
 
   return (
     <div
