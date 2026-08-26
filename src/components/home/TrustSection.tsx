@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { DiamondTestVideo } from "./DiamondTestVideo";
 
@@ -50,7 +51,20 @@ export function TrustSection() {
           ))}
         </div>
 
-        <DiamondTestVideo />
+        <div className="mt-12 flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-center">
+          <div
+            className="relative h-64 shrink-0 overflow-hidden rounded-2xl border border-white/10 sm:h-80"
+            style={{ aspectRatio: "4/3" }}
+          >
+            <Image
+              src="/community/diamond-tester-proof.jpg"
+              alt="Diamond-Tester-Check am iced-out G-Shock"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <DiamondTestVideo />
+        </div>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export function DiamondTestVideo() {
 
   return (
     <div
-      className="relative mx-auto mt-12 w-full max-w-xs overflow-hidden rounded-2xl border border-white/10 bg-ice-black"
+      className="relative h-64 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-ice-black sm:h-80"
       style={{ aspectRatio: "1046/1814" }}
     >
       <video

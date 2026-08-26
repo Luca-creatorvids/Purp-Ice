@@ -16,34 +16,50 @@ export function WornBy() {
 
       <Reveal delay={100}>
         <div className="mt-10 flex flex-wrap items-start justify-center gap-x-10 gap-y-8">
-          {celebrities.map((celebrity, index) => (
-            <div key={index} className="flex w-24 flex-col items-center gap-3">
-              <div className="relative h-20 w-20 shrink-0">
-                <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full border border-white/10 bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black">
-                  {celebrity.image ? (
-                    <Image src={celebrity.image} alt={celebrity.name} fill className="object-cover" />
-                  ) : (
-                    <PersonGlyph className="h-9 w-9 text-ice-chrome-dark opacity-60" />
-                  )}
-                </div>
-                <VerifiedBadge className="absolute bottom-0 right-0 h-6 w-6 rounded-full ring-2 ring-ice-black" />
-              </div>
-              <span className="text-xs text-ice-chrome-dark">{celebrity.name}</span>
-              {celebrity.handle && (
-                <span className="-mt-2.5 text-[0.65rem] text-ice-chrome-dark/60">{celebrity.handle}</span>
-              )}
-              {celebrity.proofImage && (
-                <div className="relative mt-1 h-32 w-24 shrink-0 overflow-hidden rounded-xl border border-white/10">
-                  <Image
-                    src={celebrity.proofImage}
-                    alt={`${celebrity.name} trägt PURPICE`}
-                    fill
-                    className="object-cover"
+          {celebrities.map((celebrity, index) => {
+            const featured = Boolean(celebrity.image && celebrity.proofImage);
+            return (
+              <div
+                key={index}
+                className={`flex flex-col items-center gap-3 ${featured ? "w-40" : "w-24"}`}
+              >
+                <div className={`relative shrink-0 ${featured ? "h-32 w-32" : "h-20 w-20"}`}>
+                  <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full border border-white/10 bg-gradient-to-br from-ice-anthracite-light via-ice-anthracite to-ice-black">
+                    {celebrity.image ? (
+                      <Image src={celebrity.image} alt={celebrity.name} fill className="object-cover" />
+                    ) : (
+                      <PersonGlyph className="h-9 w-9 text-ice-chrome-dark opacity-60" />
+                    )}
+                  </div>
+                  <VerifiedBadge
+                    className={`absolute bottom-0 right-0 rounded-full ring-2 ring-ice-black ${
+                      featured ? "h-8 w-8" : "h-6 w-6"
+                    }`}
                   />
                 </div>
-              )}
-            </div>
-          ))}
+                <span className={`text-ice-chrome-dark ${featured ? "text-sm" : "text-xs"}`}>
+                  {celebrity.name}
+                </span>
+                {celebrity.handle && (
+                  <span className="-mt-2.5 text-[0.65rem] text-ice-chrome-dark/60">{celebrity.handle}</span>
+                )}
+                {celebrity.proofImage && (
+                  <div
+                    className={`relative mt-1 shrink-0 overflow-hidden rounded-xl border border-white/10 ${
+                      featured ? "h-56 w-40" : "h-32 w-24"
+                    }`}
+                  >
+                    <Image
+                      src={celebrity.proofImage}
+                      alt={`${celebrity.name} trägt PURPICE`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </Reveal>
     </section>
