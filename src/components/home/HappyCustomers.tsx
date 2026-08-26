@@ -8,18 +8,15 @@ import { IcedStar } from "@/components/ui/IcedStar";
 // ---------------------------------------------------------------------
 const testimonials = [
   {
-    quote:
-      "Endlich Bling, das nicht nach zwei Wochen stumpf aussieht. Fühlt sich premium an, nicht wie billiges Fake-Ice.",
+    quote: "Bling, das nicht nach 2 Wochen stumpf wird. Fühlt sich premium an 💎",
     name: "Jonas K.",
   },
   {
-    quote:
-      "Bestellt am Montag, Dienstag schon da. Sieht 1:1 aus wie auf den Fotos – eher noch krasser in echt.",
+    quote: "Bestellt Montag, Dienstag schon da. In echt noch krasser als auf den Fotos.",
     name: "Malik R.",
   },
   {
-    quote:
-      "Erste Uhr mit richtig sauberem Iced-Out-Look, ohne dass es billig wirkt. Bin geflasht, kommt garantiert nicht die letzte Bestellung.",
+    quote: "Endlich sauberer Iced-Out-Look, ohne billig zu wirken. Bin geflasht 🔥❄️",
     name: "Elias T.",
   },
 ];

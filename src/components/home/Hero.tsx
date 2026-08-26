@@ -4,7 +4,11 @@ import { HeroAnimationSlot } from "./HeroAnimationSlot";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-ice-black">
+    // bg-black (statt bg-ice-black): das Hero-Video hat selbst einen
+    // reinschwarzen Hintergrund - nur mit #000 verschmilzt der Rand
+    // wirklich unsichtbar, mit dem sonstigen Seiten-Ice-Black gab es
+    // einen leichten Farbstich-Unterschied am Video-Rand.
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
       <ParallaxGlow />
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-16 lg:grid-cols-2 lg:px-10 lg:pt-24">
@@ -34,7 +38,7 @@ export function Hero() {
         </div>
 
         {/* Hero-Animationsplatz: siehe components/home/HeroAnimationSlot.tsx */}
-        <div className="relative mx-auto w-full max-w-md">
+        <div className="relative mx-auto w-full max-w-xl">
           <HeroAnimationSlot />
         </div>
       </div>

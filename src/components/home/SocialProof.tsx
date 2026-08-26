@@ -10,11 +10,7 @@ const posts: { image?: string; focusTop?: boolean }[] = [
   { image: "/community/community-1.jpg", focusTop: true },
   { image: "/community/community-2.jpg", focusTop: true },
   { image: "/community/community-3.jpg" },
-  {},
-  {},
-  {},
-  {},
-  {},
+  { image: "/community/community-4.jpg", focusTop: true },
 ];
 
 export function SocialProof() {
@@ -56,6 +52,24 @@ export function SocialProof() {
             </div>
           ))}
         </div>
+      </Reveal>
+
+      <Reveal delay={150}>
+        <div
+          className="group relative mx-auto mt-4 w-full max-w-2xl overflow-hidden rounded-xl border border-white/10"
+          style={{ aspectRatio: "1170/1469" }}
+        >
+          <Image
+            src="/community/lafami-group.jpg"
+            alt="Die PURPICE Family"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="sparkle-layer" aria-hidden="true" />
+        </div>
+        <p className="mt-3 text-center text-xs font-semibold uppercase tracking-widest text-ice-chrome-dark">
+          #LAFAMI
+        </p>
       </Reveal>
     </section>
   );

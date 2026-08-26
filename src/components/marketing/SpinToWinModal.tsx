@@ -117,14 +117,20 @@ export function SpinToWinModal() {
               return (
                 <span
                   key={index}
-                  className="absolute left-1/2 top-1/2 text-xs font-bold uppercase tracking-wide"
+                  className="absolute left-1/2 top-1/2"
                   style={{
-                    color: index % 2 === 0 ? "#060506" : "#e6e5e7",
                     transform: `rotate(${angle}deg) translate(0, -5.4rem) rotate(${-angle}deg)`,
                     transformOrigin: "0 0",
                   }}
                 >
-                  {percent}% OFF
+                  {/* Zweite Ebene zentriert den Text exakt auf dem oben berechneten
+                      Punkt (statt an dessen Ecke hängen zu lassen). */}
+                  <span
+                    className="block -translate-x-1/2 -translate-y-1/2 text-xs font-bold uppercase tracking-wide"
+                    style={{ color: index % 2 === 0 ? "#060506" : "#e6e5e7" }}
+                  >
+                    {percent}%
+                  </span>
                 </span>
               );
             })}
