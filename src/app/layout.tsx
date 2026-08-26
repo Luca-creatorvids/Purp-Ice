@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/components/cart/CartProvider";
+import { SpinToWinModal } from "@/components/marketing/SpinToWinModal";
 
 // Headline-Font: fett & modern (Ersatz fuer Clash Display / Neue Montreal)
 const spaceGrotesk = Space_Grotesk({
@@ -59,6 +60,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <SpinToWinModal />
         </CartProvider>
       </body>
     </html>
