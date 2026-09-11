@@ -7,11 +7,18 @@ const HERO_ANIMATION_SRC_MP4: string | null = "/animations/hero-watch.mp4";
 const HERO_ANIMATION_SRC_WEBM: string | null = "/animations/hero-watch.webm";
 const HERO_ANIMATION_POSTER: string | undefined = "/animations/hero-watch-poster.jpg";
 
-// Blendet den Rand des Videos weich aus, statt ihn hart abzuschneiden –
-// dadurch verschmilzt das rechteckige Video optisch mit dem schwarzen
-// Seitenhintergrund, ohne dass ein "Kasten" zu sehen ist.
+// WICHTIG: Bei radial-gradient() mit expliziter Ellipsen-Größe wird die
+// Prozentangabe gegen die VOLLE Breite/Höhe der Box aufgelöst, nicht die
+// halbe. "50% 50%" ist also die Ellipse, die die Box exakt einbeschreibt
+// (Radius = halbe Breite/Höhe -> berührt den Rand mittig auf allen vier
+// Seiten). Nur bei dieser Größe erreicht der letzte Farb-Stopp
+// ("transparent 100%") auch wirklich genau den physischen Rand der Box –
+// bei größeren Werten (z.B. 62% oder 100%, wie zuvor hier verwendet) liegt
+// der Verlauf großteils AUSSERHALB der Box, wodurch der sichtbare Teil an
+// der Kante hart abgeschnitten wirkt statt weich auszulaufen (genau der
+// "das ist offensichtlich ein eingefügtes Video"-Kanten-Effekt).
 const EDGE_FADE_MASK =
-  "radial-gradient(ellipse 62% 62% at 50% 50%, black 45%, transparent 100%)";
+  "radial-gradient(ellipse 50% 50% at 50% 50%, black 62%, transparent 100%)";
 
 /**
  * Reservierter Platz ganz oben auf der Startseite (im Hero-Bereich) für

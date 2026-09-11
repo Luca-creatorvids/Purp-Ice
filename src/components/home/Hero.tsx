@@ -11,7 +11,7 @@ export function Hero() {
     <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
       <ParallaxGlow />
 
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-16 lg:grid-cols-2 lg:px-10 lg:pt-24">
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-32 pb-16 lg:grid-cols-[1fr_1.3fr] lg:px-10 lg:pt-24">
         <div>
           <span className="inline-block rounded-full border border-ice-chrome/30 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ice-chrome">
             Made in Munich
@@ -38,7 +38,7 @@ export function Hero() {
         </div>
 
         {/* Hero-Animationsplatz: siehe components/home/HeroAnimationSlot.tsx */}
-        <div className="relative mx-auto w-full max-w-xl">
+        <div className="relative mx-auto w-full max-w-2xl lg:max-w-none lg:w-[115%] lg:-mr-10">
           <HeroAnimationSlot />
         </div>
       </div>
